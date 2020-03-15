@@ -1,11 +1,17 @@
 <template>
-  <div class="hm-bottom">
+  <div class="hm-bottom" @click="click">
     <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    click() {
+      this.$emit('click');
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>

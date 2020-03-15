@@ -10,14 +10,26 @@ import './styles/iconfont.less';
 import 'lib-flexible';
 //导入路由对象
 import router from './router/index';
+//导入axios
+import axios from 'axios';
 
-//注册全局组件
+//------------------------------------------------注册全局组件----------------------------------------------
 import hmheader from './components/hm-header.vue';
-Vue.component('hm-header', hmheader);
 import hmlogo from './components/hm-logo.vue';
-Vue.component('hm-logo', hmlogo);
 import hmbottom from './components/hm-bottom.vue';
+import hminput from './components/hm-input.vue';
+Vue.component('hm-header', hmheader);
+Vue.component('hm-logo', hmlogo);
 Vue.component('hm-bottom', hmbottom);
+Vue.component('hm-input', hminput);
+
+//axios和Vue并没有关系,强行让axios与Vue有关系
+//把axios绑定到vue原型上,所有的Vue实例(组件)都可以通过this.axios访问到axios
+Vue.prototype.$axios = axios;
+
+//引入vant组件
+import { Toast } from 'vant';
+Vue.use(Toast);
 
 Vue.config.productionTip = false;
 
